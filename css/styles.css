@@ -1,0 +1,552 @@
+/*-----------------------
+| Variables
+ *---------------------*/
+:root {
+    --body-bg-color:             #fafbfb;
+    --main-color:                orangered;
+    --title-heading-color:       #334155ff;
+    
+    --main-header-font:          "Rubik Mono One", monospace;
+    --navigation-font:           "Noto Sans", sans-serif;
+    --company-and-position-font: "Sono", monospace;
+    --testimonial-font:          "Instrument Serif", serif;
+}
+
+*,
+*::before,
+*::after {
+    padding:    0;
+    margin:     0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* 10px */
+}
+
+body {
+    background-color: var(--body-bg-color);
+    color:            #000000;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color:           #000000;
+}
+
+.container {
+    width:   100%;
+    height:  100vh;
+    padding: 5rem 30rem 0 30rem;
+}
+
+.title {
+    color:     var(--title-heading-color);
+    font-size: 3rem;
+}
+
+/*-----------------------
+| Main navigation
+ *---------------------*/
+nav {
+    display:         flex;
+    justify-content: space-between;
+    align-items:     center;
+    gap:             5rem;
+}
+
+nav a {
+    font-family: var(--navigation-font);
+}
+
+nav .logo-container h2 {
+    font-size: 4rem;
+    color:     var(--main-color);
+}
+
+nav .logo-container h2:first-letter {
+    text-decoration: underline;
+}
+
+nav ul.main-navigation {
+    display:         flex;
+    justify-content: space-between;
+    align-items:     center;
+    flex-basis:      30rem;
+    gap:             5rem;
+}
+
+/* Styles related to border below each navigation item on hover */
+nav ul.main-navigation .navigation-item a {
+    font-size:   2rem;
+    font-weight: bold;
+    position:    relative;
+}
+
+nav ul.main-navigation .navigation-item a::after {
+    content:    "";
+    width:      100%;
+    position:   absolute;
+    left:       0;
+    bottom:     -.5rem;
+    border:     transparent;
+    transition: border .2s ease-in;
+}
+
+nav ul.main-navigation .navigation-item:hover a::after {
+    border: 1px solid red;
+}
+
+/* call to action buttons in top menu */
+nav .call-to-action-buttons-container {
+    display: flex;
+    gap:     1rem
+}
+
+nav .call-to-action-buttons-container .btn {
+    border:        2px solid var(--main-color);
+    padding:       2rem 1rem;
+    background:    none;
+    border-radius: 1rem;
+    font-size:     1.8rem;
+    font-weight:   bold;
+    cursor:        pointer;
+}
+
+nav .call-to-action-buttons-container .btn-hire-a-consultant {
+    color:      var(--main-color);
+    transition: background-color, color .4s ease-in-out;
+}
+
+nav .call-to-action-buttons-container .btn-hire-a-consultant:hover {
+    color:            #ffffff;
+    background-color: var(--main-color);
+}
+
+nav .call-to-action-buttons-container .btn-post-a-job {
+    color:            #ffffff;
+    background-color: var(--main-color);
+    transition:       background-color, color .4s ease-in-out;
+}
+
+nav .call-to-action-buttons-container .btn-post-a-job:hover {
+    color:            var(--main-color);
+    background-color: #ffffff;
+}
+
+/*-----------------------
+| Header
+ *---------------------*/
+header .intro {
+    text-align: center;
+}
+
+header .intro .main-heading {
+    font-family:   var(--main-header-font);
+    font-size:     4em;
+    margin-top:    10rem;
+    margin-bottom: 2rem;
+}
+
+header .intro .intro-text {
+    font-family:    var(--testimonial-font);
+    font-size:      2rem;
+    letter-spacing: .3rem;
+}
+
+header .intro .intro-text span {
+    color: var(--main-color);
+}
+
+header .intro .trusted-by {
+    display:          flex;
+    align-items:      center;
+    justify-content:  space-around;
+    height:           100px;
+    background-color: #f6f8fb;
+    margin-top:       5rem;
+    margin-left:      -30rem;
+    margin-right:     -30rem;
+    padding-left:     30rem;
+    padding-right:    30rem
+}
+
+header .intro .trusted-by img {
+    height: 20px;
+}
+
+/*-----------------------
+| Main
+ *---------------------*/
+main {
+    margin-top: 10rem;
+}
+
+main .jobs-container {
+    margin-top:  5rem;
+    display:     flex;
+    align-items: center;
+    flex-wrap:   wrap;
+    gap:         2rem;
+}
+
+main .jobs-container .job {
+    width:          40rem;
+    height:         32rem;
+    display:        flex;
+    flex-direction: column;
+    gap:            2rem;
+    padding:        1rem;
+    border:         1px solid #efebeb;
+    border-radius:  1rem;
+    transition:     all .3s ease-in;
+    cursor:         pointer;
+    position:       relative;
+}
+
+main .jobs-container .job:hover {
+    transform: translateY(-1rem);
+}
+
+main .jobs-container .job .company {
+    display:       flex;
+    align-items:   center;
+    gap:           .8rem;
+    margin-bottom: 1rem;
+}
+
+main .jobs-container .job .company .company-image-container {
+    width:         45px;
+    height:        45px;
+    border-radius: 1rem;
+    overflow:      hidden;
+}
+
+main .jobs-container .job .company .company-image-container img {
+    width:      100%;
+    object-fit: cover;
+}
+
+main .jobs-container .job .company .company-info {
+    flex-grow: 1;
+    position:  relative;
+}
+
+main .jobs-container .job .company .company-info h3 {
+    font-size:   1.8rem;
+    font-family: var(--company-and-position-font);
+}
+
+main .jobs-container .job .company .company-info i {
+    position:  absolute;
+    top:       -2px;
+    right:     254px;
+    font-size: 1.2rem;
+    color:     cornflowerblue;
+}
+
+main .jobs-container .job .company .company-info p {
+    font-size:   1.2rem;
+    margin-top:  .3rem;
+    font-family: var(--company-and-position-font);
+}
+
+main .jobs-container .job .tags {
+    display: flex;
+    gap:     .8rem;
+}
+
+main .jobs-container .job .tags span {
+    padding:         .4rem;
+    border:          1px solid #cccccc;
+    border-radius:   1rem;
+    font-weight:     bold;
+    display:         flex;
+    align-items:     center;
+    justify-content: space-evenly;
+    gap:             1rem;
+}
+
+main .jobs-container .job .tags i.remote {
+    color:     forestgreen;
+    font-size: 1.2rem;
+}
+
+main .jobs-container .job .tags i.non-remote {
+    color:     #4978bd;
+    font-size: 1.2rem;
+}
+
+main .jobs-container .job .tags span img {
+    width: 13px;
+}
+
+main .jobs-container .job .description h3 {
+    font-size:   2rem;
+    font-family: var(--company-and-position-font);
+}
+
+main .jobs-container .job .description p {
+    font-size:  1.5rem;
+    margin-top: 1rem;
+    color:      #6b7280ff;
+}
+
+main .jobs-container .job .footer {
+    padding:         1rem 0 2rem 0;
+    display:         flex;
+    align-items:     center;
+    justify-content: space-between;
+}
+
+main .jobs-container .job .footer button {
+    border:        none;
+    background:    #f1f5f9;
+    padding:       1rem;
+    border-radius: 1rem;
+    font-weight:   bold;
+    cursor:        crosshair;
+}
+
+main .jobs-container .job .footer span {
+    color: #969595;
+}
+
+main .jobs-container .job span.hot {
+    position: absolute;
+    top:      2rem;
+    right:    3rem;
+}
+
+main .jobs-container .job span.hot i {
+    font-size: 3rem;
+    color:     red;
+}
+
+main .jobs-container .job.hot {
+    border:           1px dashed red;
+    transition:       all .2s;
+    background-color: #fdbbbb;
+}
+
+main .jobs-container .job.hot p {
+    color: #000000;
+}
+
+main .jobs-container .job.hot:hover {
+    border:      3px dashed red;
+    border-left: transparent;
+    transform:   rotateZ(-2deg);
+}
+
+main .btn-view-more-jobs {
+    border:        1px solid #000000;
+    background:    #f1f5f9;
+    padding:       1rem;
+    border-radius: 1rem;
+    display:       block;
+    margin:        3rem auto 0 auto;
+    cursor:        pointer;
+}
+
+/*-----------------------
+| Get Job alerts
+ *---------------------*/
+.get-job-alerts {
+    padding:       5rem 3rem 5rem 3rem;
+    border-radius: 1rem;
+    background:    #f6f8fb;
+    margin:        8rem -30rem 5rem;
+}
+
+.get-job-alerts .get-job-alerts-content {
+    display:         flex;
+    gap:             2rem;
+    align-items:     flex-start;
+    justify-content: center;
+}
+
+.get-job-alerts .get-job-alerts-content .left-side {
+    flex-basis: 20%;
+}
+
+.get-job-alerts .get-job-alerts-content .left-side img {
+    width:      100%;
+    object-fit: cover;
+}
+
+.get-job-alerts .get-job-alerts-content .right-side h3 {
+    font-size:      3.5rem;
+    color:          #11b011;
+    letter-spacing: 2px;
+    margin-bottom:  2rem;
+    font-weight:    bold;
+}
+
+.get-job-alerts .get-job-alerts-content .right-side h4 {
+    font-size:      1.5rem;
+    letter-spacing: 1px;
+    margin-bottom:  2rem;
+    font-family:    "Raleway Thin", serif;
+}
+
+.get-job-alerts .get-job-alerts-content .right-side .form {
+    display:        flex;
+    flex-direction: column;
+    align-items:    center;
+}
+
+.get-job-alerts .get-job-alerts-content .right-side .form .form-group {
+    margin-bottom: 2rem;
+    display:       flex;
+    align-items:   center;
+    width:         45rem;
+}
+
+.get-job-alerts .get-job-alerts-content .right-side .form label {
+    color:      #6e6e6e;
+    font-size:  1.5rem;
+    flex-basis: 15%;
+}
+
+.get-job-alerts .get-job-alerts-content .right-side .form .form-group input {
+    border:        1px solid #cccccc;
+    padding:       1rem;
+    border-radius: .5rem;
+    outline:       none;
+    width:         100%;
+}
+
+.get-job-alerts .get-job-alerts-content .right-side .form .form-group input::placeholder {
+    color: #e3d9d9;
+}
+
+.get-job-alerts .get-job-alerts-content .right-side .form .form-group button {
+    padding:          1rem;
+    width:            100%;
+    border-radius:    1rem;
+    border:           none;
+    color:            #ffffff;
+    background-color: #11b011;
+    cursor:           pointer;
+    font-size:        2rem;
+    transition:       all .2s ease-in-out;
+}
+
+.get-job-alerts .get-job-alerts-content .right-side .form .form-group button:hover {
+    background-color: #f6f8fb;
+    border:           1px solid #11b011;
+    color:            #000000;
+    transform:        translateY(-1px);
+}
+
+.get-job-alerts .get-job-alerts-content .right-side .form .form-group button:active {
+    transform: translateY(0);
+}
+
+/*-----------------------
+| Common Technologies
+ *---------------------*/
+.common-technologies-content {
+    display:         flex;
+    gap:             5rem;
+    justify-content: space-evenly;
+    margin-top:      10rem;
+}
+
+.common-technologies-content .left {
+    flex-basis: 45%;
+}
+
+.common-technologies-content .right .technology-boxes {
+    display:   flex;
+    flex-wrap: wrap;
+}
+
+.common-technologies-content .right .technology-boxes img {
+    width:        5rem;
+    object-fit:   cover;
+    margin-right: 10rem;
+    transition:   all .3s ease-in-out;
+}
+
+.common-technologies-content .right .technology-boxes img:hover {
+    transform: rotateZ(-5deg);
+}
+
+/*-----------------------
+| Footer
+ *---------------------*/
+main footer {
+    margin-top:       20rem;
+    margin-right:     -30rem;
+    margin-left:      -30rem;
+    padding:          5rem 30rem 5rem 30rem;
+    background-color: #1e283a;
+    color:            #ffffff;
+    display:          flex;
+    justify-content:  space-between;
+}
+
+main footer .socials .logo-container h2.text-logo {
+    font-size:     4rem;
+    color:         var(--main-color);
+    margin-bottom: 2rem;
+}
+
+main footer .socials .logo-container h2.text-logo:first-letter {
+    text-decoration: underline;
+}
+
+main footer .socials .icons {
+    display:         flex;
+    justify-content: space-between;
+}
+
+main footer .socials .icons i {
+    font-size: 2.2rem;
+}
+
+main footer p {
+    margin-top: 2rem;
+}
+
+main footer p i {
+    font-size:    1.5rem;
+    margin-right: .5rem;
+}
+
+main footer p a {
+    font-size: 1.5rem;
+    color:     #ffffff;
+}
+
+main footer .find-a-job,
+main footer .discover,
+main footer .hire,
+main footer .contact {
+    display:         flex;
+    flex-direction:  column;
+    justify-content: flex-start;
+}
+
+main footer .find-a-job h4,
+main footer .discover h4,
+main footer .hire h4,
+main footer .contact h4 {
+    font-size:       2rem;
+    text-decoration: underline;
+}
+
+main footer .find-a-job p,
+main footer .discover p,
+main footer .hire p,
+main footer .contact p {
+    font-size:   1.4rem;
+}
+
+
